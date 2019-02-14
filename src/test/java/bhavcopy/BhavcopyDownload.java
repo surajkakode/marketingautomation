@@ -1,0 +1,85 @@
+package bhavcopy;
+
+import excelUtility.UnzipUtility;
+import org.apache.log4j.Logger;
+import org.testng.annotations.*;
+import testBase.TestBase;
+import uiActionBhavcopy.Bhavcopy;
+
+import java.io.IOException;
+
+public class BhavcopyDownload extends TestBase{
+
+    public static final Logger log = Logger.getLogger(BhavcopyDownload.class.getName());
+
+
+    @BeforeMethod
+    public void setup()
+    {
+        init();
+    }
+
+
+
+    public String fromDate;
+
+
+    public void loadUserProperty() throws IOException {
+        this.fromDate = System.getProperty("fromDate");
+    }
+
+    @Test
+    public void downloadBhavcopy()
+    {
+        driver.get("https://www.nseindia.com/products/content/equities/equities/archieve_eq.htm");
+
+        try {
+            loadUserProperty();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Bhavcopy bhavcopy = new Bhavcopy(driver);
+        bhavcopy.setSelectReport(bhavcopy.BHAVCOPY);
+        if (this.fromDate == null ||this.fromDate.equals("undefined") || this.fromDate.equals(null) || this.fromDate.equals("${fromDate}") || this.fromDate.equals(" ")) {
+
+            bhavcopy.choosePreviousDate();
+        } else {
+            bhavcopy.chooseDate(this.fromDate);  //format should be dd-MM-yyyy
+        }
+
+        bhavcopy.getData();
+        String filename = bhavcopy.downloadFile();
+        log.info(filename);
+
+        try {
+            Thread.sleep(10000);  // Let the file download for 10 sec.
+        } catch (InterruptedException e) {
+            log.error(e);
+        }
+
+        UnzipUtility utility =new UnzipUtility();
+        try {
+            utility.unzip(super.downloadFilepath,super.downloadFilepath,filename);
+            System.setProperty("csvFile",filename);
+            Thread.sleep(5000);
+
+        } catch (IOException e) {
+            log.error(e,e);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @AfterMethod
+    public void closeBrowser()
+    {
+        for (String handle : driver.getWindowHandles()) {
+            if (handle != null && handle.trim().length() > 0) {
+                driver.switchTo().window(handle);
+                driver.close();
+            }
+        }
+        driver.quit();
+    }
+}

@@ -1,0 +1,52 @@
+package screener;
+
+
+import com.google.gson.Gson;
+import io.restassured.RestAssured;
+import io.restassured.authentication.PreemptiveBasicAuthScheme;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import org.apache.log4j.Logger;
+import org.testng.annotations.Test;
+
+import java.util.List;
+
+public class PostScreenerData {
+    public static final Logger log = Logger.getLogger(PostScreenerData.class.getName());
+    public static final int  batchCount=10;
+
+    @Test
+    public void run()
+    {
+        ScreenerAutomation screenerAutomation = new ScreenerAutomation();
+
+        List<Screener> list= screenerAutomation.screenerList;
+
+        int count = list.size() / batchCount;
+        int remainder = list.size() % batchCount;
+
+        for(int k =0;k < count; k++) {
+            int from = k*batchCount;
+            int to = (k+1)*batchCount;
+            log.info("FROM ["+from + "] TO ["+ to+"]");
+            postData(list.subList(from, to));
+        }
+
+        if (remainder > 0) {
+            postData(list.subList(count*batchCount, (count*batchCount) + remainder));
+        }
+    }
+
+    public void postData(List<Screener> data) {
+        PreemptiveBasicAuthScheme authScheme = new PreemptiveBasicAuthScheme();
+        authScheme.setUserName("marketing");
+        authScheme.setPassword("test123");
+        RestAssured.authentication = authScheme;
+        RequestSpecification request = RestAssured.given();
+        request.header("Content-Type", "application/json");
+//        Gson gson = new Gson();
+//        String json =  gson.toJson(data);
+        request.body(data);
+        Response response = request.post(System.getProperty("URI"));
+    }
+}

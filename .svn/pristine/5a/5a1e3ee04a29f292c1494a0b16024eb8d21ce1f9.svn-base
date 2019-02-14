@@ -1,0 +1,214 @@
+package uiActionAMFI;
+
+import com.google.gson.Gson;
+import io.restassured.RestAssured;
+import io.restassured.authentication.PreemptiveBasicAuthScheme;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+
+public class FormSearch {
+
+    public static final Logger log = Logger.getLogger(FormSearch.class.getName());
+    public static final int batchCount = 10;
+
+    WebDriver driver;
+
+    public FormSearch(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    public static List<Distributor> list = new ArrayList<Distributor>();
+
+
+    @FindBy(xpath = "//*[@id='divNearestFinAdvisorsCity']//input")
+    private WebElement cityBox;
+
+    @FindBy(id = "NearestFinAdvisorsCity")
+    private WebElement city;
+
+    @FindBy(id = "NearestFinAdvisorsPin")
+    private WebElement pin;
+
+    @FindBy(xpath = "//*[@id='divNearestFinAdvisorsPin']//input")
+    private WebElement pinBox;
+
+    @FindBy(xpath = "//*[@value='All' and @type='radio']")
+    private WebElement radioTypeAll;
+
+    @FindBy(id = "hrfGo")
+    private WebElement goButton;
+
+    @FindBy(xpath = "//*[@id='divExcel']/table/tbody/tr")
+    private List<WebElement> rows;
+
+    @FindBy(xpath = "//*[contains(text(),'No records to display')]")
+    private WebElement noRecords;
+
+    @FindBy(xpath = "//*[@id='NearestFinAdvisors']/a")
+    private WebElement backButton;
+
+    public Set<String> getCityList() {
+        try {
+            waitTillElementToBeVisibleAndCliable(this.cityBox, 30);
+        } catch (Exception e) {
+            driver.navigate().refresh();
+            waitTillElementToBeVisibleAndCliable(this.cityBox, 30);
+        }
+        Select select = new Select(this.city);
+        List<WebElement> cityList = new ArrayList<>(select.getOptions());
+        Set<String> cityName = new TreeSet<>(cityList.stream().filter(e -> (e != null && !e.getAttribute("value").equals("-----") && !e.getAttribute("value").equals(""))).map(e -> e.getAttribute("value")).collect(Collectors.toSet()));
+        //cityName=cityList.stream().filter(e-> (e!=null && !e.getAttribute("value").equals("-----") && !e.getAttribute("value").equals(""))).map(e -> e.getAttribute("value")).collect(Collectors.toSet());
+
+        //List<String> cityName =new ArrayList<>();
+        /*for(WebElement e: cityList) //WebElement e: cityList
+        {
+            if (e!=null && !e.getAttribute("value").equals("-----") && !e.getAttribute("value").equals("")) {
+                cityName.add(e.getAttribute("value"));
+
+            }
+        }*/
+       /* cityName.add(cityList.get(19).getAttribute("value"));
+        cityName.add(cityList.get(20).getAttribute("value"));*/
+       return cityName;
+    }
+    public void loopAllCity(Set<String> cityName)
+    {
+        for (String e : cityName) {
+            if (e != null && !e.equals("-----") && !e.equals("")) {
+                try {
+                    waitTillElementToBeVisibleAndCliable(cityBox, 30);
+                } catch (Exception e1) {
+                    driver.navigate().refresh();
+                    waitTillElementToBeVisibleAndCliable(cityBox, 30);
+                }
+                cityBox.sendKeys(e + Keys.TAB);
+                goButton.click();
+                getData();
+
+            }
+        }
+
+    }
+    public void selectCity(String city)
+    {
+        try {
+            waitTillElementToBeVisibleAndCliable(cityBox, 30);
+        } catch (Exception e1) {
+            driver.navigate().refresh();
+            waitTillElementToBeVisibleAndCliable(cityBox, 30);
+        }
+        cityBox.sendKeys(city + Keys.TAB);
+        goButton.click();
+        getData();
+    }
+
+    public void getData() {
+        boolean record = false;
+        try {
+            if (noRecords.isDisplayed() == true) {
+                driver.navigate().refresh();
+            }
+        } catch (org.openqa.selenium.NoSuchElementException e1) {
+            record = true;
+        }
+
+        if (record == true) {
+            List<WebElement> tr = rows;
+            for (int i = 1; i < tr.size(); i++) {
+
+                Distributor distributor = new Distributor();
+                List<WebElement> cells = tr.get(i).findElements(By.tagName("td"));
+
+                try {
+                    distributor.setArn(cells.get(1).getText());
+                    distributor.setName(cells.get(2).getText());
+                    distributor.setAddress(cells.get(3).getText());
+                    distributor.setPin(cells.get(4).getText());
+                    distributor.setEmail(cells.get(5).getText());
+                    distributor.setCity(cells.get(6).getText());
+                    distributor.setPhone(cells.get(7).getText());
+                    distributor.setPhoneOffice(cells.get(8).getText());
+                    distributor.setArnValidity(cells.get(9).getText());
+                    distributor.setArnValidFrom(cells.get(10).getText());
+                    distributor.setKydCompliant(cells.get(11).getText());
+                    distributor.setEuin(cells.get(12).getText());
+                } catch (Exception e) {
+
+                }
+
+                list.add(distributor);
+
+                if (list.size() == batchCount) {
+                    postData(list);
+                    list.clear();
+                }
+
+
+                            /*distributor.setArn(driver.findElement(By.xpath("//*[@id='divExcel']/table/tbody/tr[" + i + "]/td[2]")).getText());
+                            distributor.setName(driver.findElement(By.xpath("//*[@id='divExcel']/table/tbody/tr[" + i + "]/td[3]")).getText());
+                            distributor.setAddress(driver.findElement(By.xpath("//*[@id='divExcel']/table/tbody/tr[" + i + "]/td[4]")).getText());
+                            distributor.setPin(driver.findElement(By.xpath("//*[@id='divExcel']/table/tbody/tr[" + i + "]/td[5]")).getText());
+                            distributor.setEmail(driver.findElement(By.xpath("//*[@id='divExcel']/table/tbody/tr[" + i + "]/td[6]")).getText());
+                            distributor.setCity(driver.findElement(By.xpath("//*[@id='divExcel']/table/tbody/tr[" + i + "]/td[7]")).getText());
+                            distributor.setPhone(driver.findElement(By.xpath("//*[@id='divExcel']/table/tbody/tr[" + i + "]/td[8]")).getText());
+                            distributor.setPhoneOffice(driver.findElement(By.xpath("//*[@id='divExcel']/table/tbody/tr[" + i + "]/td[9]")).getText());
+                            distributor.setArnValidity(driver.findElement(By.xpath("//*[@id='divExcel']/table/tbody/tr[" + i + "]/td[10]")).getText());
+                            distributor.setArnValidFrom(driver.findElement(By.xpath("//*[@id='divExcel']/table/tbody/tr[" + i + "]/td[11]")).getText());
+                            distributor.setKydCompliant(driver.findElement(By.xpath("//*[@id='divExcel']/table/tbody/tr[" + i + "]/td[12]")).getText());
+                            distributor.setEuin(driver.findElement(By.xpath("//*[@id='divExcel']/table/tbody/tr[" + i + "]/td[13]")).getText());
+                            */
+
+            }
+            driver.navigate().refresh();
+        }
+    }
+
+    private void waitTillElementToBeVisibleAndCliable(WebElement element, int time) {
+        new WebDriverWait(driver, time).until(ExpectedConditions.visibilityOf(element));
+        new WebDriverWait(driver, time).until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    private void waitTillElementToBeVisible(WebElement element, int time) {
+        new WebDriverWait(driver, time).until(ExpectedConditions.visibilityOf(element));
+
+    }
+
+    private void waitTillElementToBeCliable(WebElement element, int time) {
+
+        new WebDriverWait(driver, time).until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public void processBatch() {
+        if (list.size() > 0) {
+            postData(list);
+        }
+    }
+
+    public void postData(List<Distributor> data) {
+        PreemptiveBasicAuthScheme authScheme = new PreemptiveBasicAuthScheme();
+        authScheme.setUserName(System.getProperty("userName"));
+        authScheme.setPassword(System.getProperty("passWord"));
+        RestAssured.authentication = authScheme;
+        RequestSpecification request = RestAssured.given();
+        request.header("Content-Type", "application/json");
+        Gson gson = new Gson();
+        String json = gson.toJson(data);
+        request.body(json);
+        Response response = request.post(System.getProperty("URI"));
+    }
+}

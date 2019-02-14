@@ -1,0 +1,141 @@
+2019-02-06 18:46:30 INFO  bhavcopyDownload:55 - cm05FEB2019bhav.csv.zip
+2019-02-06 18:46:46 INFO  PostBhavcopyData:29 - cm05FEB2019bhav.csv
+2019-02-06 18:46:46 INFO  PostBhavcopyData:70 - FROM [0] TO [100]
+2019-02-06 18:46:47 INFO  PostBhavcopyData:70 - FROM [100] TO [200]
+2019-02-06 18:46:47 INFO  PostBhavcopyData:70 - FROM [200] TO [300]
+2019-02-06 18:46:47 INFO  PostBhavcopyData:70 - FROM [300] TO [400]
+2019-02-06 18:46:47 INFO  PostBhavcopyData:70 - FROM [400] TO [500]
+2019-02-06 18:46:47 INFO  PostBhavcopyData:70 - FROM [500] TO [600]
+2019-02-06 18:46:47 INFO  PostBhavcopyData:70 - FROM [600] TO [700]
+2019-02-06 18:46:47 INFO  PostBhavcopyData:70 - FROM [700] TO [800]
+2019-02-06 18:46:47 INFO  PostBhavcopyData:70 - FROM [800] TO [900]
+2019-02-06 18:46:47 INFO  PostBhavcopyData:70 - FROM [900] TO [1000]
+2019-02-06 18:46:47 INFO  PostBhavcopyData:70 - FROM [1000] TO [1100]
+2019-02-06 18:46:47 INFO  PostBhavcopyData:70 - FROM [1100] TO [1200]
+2019-02-06 18:46:47 INFO  PostBhavcopyData:70 - FROM [1200] TO [1300]
+2019-02-06 18:46:47 INFO  PostBhavcopyData:70 - FROM [1300] TO [1400]
+2019-02-06 18:46:47 INFO  PostBhavcopyData:70 - FROM [1400] TO [1500]
+2019-02-06 18:46:47 INFO  PostBhavcopyData:70 - FROM [1500] TO [1600]
+2019-02-06 18:46:47 INFO  PostBhavcopyData:70 - FROM [1600] TO [1700]
+2019-02-06 18:46:47 INFO  PostBhavcopyData:70 - FROM [1700] TO [1800]
+2019-02-06 18:46:47 INFO  PostBhavcopyData:70 - FROM [1800] TO [1900]
+2019-02-06 18:46:47 INFO  PostBhavcopyData:99 - D:\fincash-marketing-automation\download\cm05FEB2019bhav.csv.zip
+2019-02-06 18:46:47 INFO  PostBhavcopyData:100 - D:\fincash-marketing-automation\download\cm05FEB2019bhav.csv
+2019-02-06 18:52:38 INFO  bhavcopyDownload:55 - cm05FEB2019bhav.csv.zip
+2019-02-06 18:52:54 INFO  PostBhavcopyData:29 - cm05FEB2019bhav.csv
+2019-02-06 18:52:54 INFO  PostBhavcopyData:70 - FROM [0] TO [100]
+2019-02-06 18:52:55 INFO  PostBhavcopyData:70 - FROM [100] TO [200]
+2019-02-06 18:52:55 INFO  PostBhavcopyData:70 - FROM [200] TO [300]
+2019-02-06 18:52:55 INFO  PostBhavcopyData:70 - FROM [300] TO [400]
+2019-02-06 18:52:55 INFO  PostBhavcopyData:70 - FROM [400] TO [500]
+2019-02-06 18:52:55 INFO  PostBhavcopyData:70 - FROM [500] TO [600]
+2019-02-06 18:52:55 INFO  PostBhavcopyData:70 - FROM [600] TO [700]
+2019-02-06 18:52:55 INFO  PostBhavcopyData:70 - FROM [700] TO [800]
+2019-02-06 18:52:55 INFO  PostBhavcopyData:70 - FROM [800] TO [900]
+2019-02-06 18:52:55 INFO  PostBhavcopyData:70 - FROM [900] TO [1000]
+2019-02-06 18:52:55 INFO  PostBhavcopyData:70 - FROM [1000] TO [1100]
+2019-02-06 18:52:55 INFO  PostBhavcopyData:70 - FROM [1100] TO [1200]
+2019-02-06 18:52:55 INFO  PostBhavcopyData:70 - FROM [1200] TO [1300]
+2019-02-06 18:52:55 INFO  PostBhavcopyData:70 - FROM [1300] TO [1400]
+2019-02-06 18:52:55 INFO  PostBhavcopyData:70 - FROM [1400] TO [1500]
+2019-02-06 18:52:55 INFO  PostBhavcopyData:70 - FROM [1500] TO [1600]
+2019-02-06 18:52:55 INFO  PostBhavcopyData:70 - FROM [1600] TO [1700]
+2019-02-06 18:52:55 INFO  PostBhavcopyData:70 - FROM [1700] TO [1800]
+2019-02-06 18:52:55 INFO  PostBhavcopyData:70 - FROM [1800] TO [1900]
+2019-02-06 18:52:55 INFO  PostBhavcopyData:99 - D:\fincash-marketing-automation\download\cm05FEB2019bhav.csv.zip
+2019-02-06 18:52:55 INFO  PostBhavcopyData:100 - D:\fincash-marketing-automation\download\cm05FEB2019bhav.csv
+2019-02-06 18:52:55 ERROR PostBhavcopyData:108 - unzipped File not Found
+2019-02-06 19:07:14 INFO  bhavcopyDownload:55 - cm05FEB2019bhav.csv.zip
+2019-02-06 19:07:29 INFO  PostBhavcopyData:29 - cm05FEB2019bhav.csv
+2019-02-06 19:07:29 INFO  PostBhavcopyData:70 - FROM [0] TO [100]
+2019-02-06 19:07:30 INFO  PostBhavcopyData:70 - FROM [100] TO [200]
+2019-02-06 19:07:30 INFO  PostBhavcopyData:70 - FROM [200] TO [300]
+2019-02-06 19:07:30 INFO  PostBhavcopyData:70 - FROM [300] TO [400]
+2019-02-06 19:07:30 INFO  PostBhavcopyData:70 - FROM [400] TO [500]
+2019-02-06 19:07:30 INFO  PostBhavcopyData:70 - FROM [500] TO [600]
+2019-02-06 19:07:30 INFO  PostBhavcopyData:70 - FROM [600] TO [700]
+2019-02-06 19:07:30 INFO  PostBhavcopyData:70 - FROM [700] TO [800]
+2019-02-06 19:07:30 INFO  PostBhavcopyData:70 - FROM [800] TO [900]
+2019-02-06 19:07:30 INFO  PostBhavcopyData:70 - FROM [900] TO [1000]
+2019-02-06 19:07:30 INFO  PostBhavcopyData:70 - FROM [1000] TO [1100]
+2019-02-06 19:07:31 INFO  PostBhavcopyData:70 - FROM [1100] TO [1200]
+2019-02-06 19:07:31 INFO  PostBhavcopyData:70 - FROM [1200] TO [1300]
+2019-02-06 19:07:31 INFO  PostBhavcopyData:70 - FROM [1300] TO [1400]
+2019-02-06 19:07:31 INFO  PostBhavcopyData:70 - FROM [1400] TO [1500]
+2019-02-06 19:07:31 INFO  PostBhavcopyData:70 - FROM [1500] TO [1600]
+2019-02-06 19:07:31 INFO  PostBhavcopyData:70 - FROM [1600] TO [1700]
+2019-02-06 19:07:31 INFO  PostBhavcopyData:70 - FROM [1700] TO [1800]
+2019-02-06 19:07:31 INFO  PostBhavcopyData:70 - FROM [1800] TO [1900]
+2019-02-06 19:07:31 INFO  PostBhavcopyData:99 - D:\fincash-marketing-automation\download\cm05FEB2019bhav.csv.zip
+2019-02-06 19:07:31 INFO  PostBhavcopyData:100 - D:\fincash-marketing-automation\download\cm05FEB2019bhav.csv
+2019-02-06 19:08:58 INFO  bhavcopyDownload:55 - cm05FEB2019bhav.csv.zip
+2019-02-06 19:09:13 INFO  PostBhavcopyData:29 - cm05FEB2019bhav.csv
+2019-02-06 19:09:13 INFO  PostBhavcopyData:70 - FROM [0] TO [100]
+2019-02-06 19:09:14 INFO  PostBhavcopyData:70 - FROM [100] TO [200]
+2019-02-06 19:09:14 INFO  PostBhavcopyData:70 - FROM [200] TO [300]
+2019-02-06 19:09:14 INFO  PostBhavcopyData:70 - FROM [300] TO [400]
+2019-02-06 19:09:14 INFO  PostBhavcopyData:70 - FROM [400] TO [500]
+2019-02-06 19:09:14 INFO  PostBhavcopyData:70 - FROM [500] TO [600]
+2019-02-06 19:09:14 INFO  PostBhavcopyData:70 - FROM [600] TO [700]
+2019-02-06 19:09:14 INFO  PostBhavcopyData:70 - FROM [700] TO [800]
+2019-02-06 19:09:14 INFO  PostBhavcopyData:70 - FROM [800] TO [900]
+2019-02-06 19:09:14 INFO  PostBhavcopyData:70 - FROM [900] TO [1000]
+2019-02-06 19:09:14 INFO  PostBhavcopyData:70 - FROM [1000] TO [1100]
+2019-02-06 19:09:14 INFO  PostBhavcopyData:70 - FROM [1100] TO [1200]
+2019-02-06 19:09:14 INFO  PostBhavcopyData:70 - FROM [1200] TO [1300]
+2019-02-06 19:09:15 INFO  PostBhavcopyData:70 - FROM [1300] TO [1400]
+2019-02-06 19:09:15 INFO  PostBhavcopyData:70 - FROM [1400] TO [1500]
+2019-02-06 19:09:15 INFO  PostBhavcopyData:70 - FROM [1500] TO [1600]
+2019-02-06 19:09:15 INFO  PostBhavcopyData:70 - FROM [1600] TO [1700]
+2019-02-06 19:09:15 INFO  PostBhavcopyData:70 - FROM [1700] TO [1800]
+2019-02-06 19:09:15 INFO  PostBhavcopyData:70 - FROM [1800] TO [1900]
+2019-02-06 19:09:15 INFO  PostBhavcopyData:99 - D:\fincash-marketing-automation\download\cm05FEB2019bhav.csv.zip
+2019-02-06 19:09:15 INFO  PostBhavcopyData:100 - D:\fincash-marketing-automation\download\cm05FEB2019bhav.csv
+2019-02-06 19:09:15 INFO  PostBhavcopyData:105 - zipped file deleted
+2019-02-06 19:09:15 INFO  PostBhavcopyData:111 - unzipped file deleted
+2019-02-06 19:28:34 INFO  bhavcopyDownload:55 - cm05FEB2019bhav.csv.zip
+2019-02-06 19:28:50 INFO  PostBhavcopyData:29 - cm05FEB2019bhav.csv
+2019-02-06 19:28:50 INFO  PostBhavcopyData:70 - FROM [0] TO [100]
+2019-02-06 19:28:51 INFO  PostBhavcopyData:70 - FROM [100] TO [200]
+2019-02-06 19:28:51 INFO  PostBhavcopyData:70 - FROM [200] TO [300]
+2019-02-06 19:28:51 INFO  PostBhavcopyData:70 - FROM [300] TO [400]
+2019-02-06 19:28:51 INFO  PostBhavcopyData:70 - FROM [400] TO [500]
+2019-02-06 19:28:51 INFO  PostBhavcopyData:70 - FROM [500] TO [600]
+2019-02-06 19:28:51 INFO  PostBhavcopyData:70 - FROM [600] TO [700]
+2019-02-06 19:28:51 INFO  PostBhavcopyData:70 - FROM [700] TO [800]
+2019-02-06 19:28:51 INFO  PostBhavcopyData:70 - FROM [800] TO [900]
+2019-02-06 19:28:51 INFO  PostBhavcopyData:70 - FROM [900] TO [1000]
+2019-02-06 19:28:51 INFO  PostBhavcopyData:70 - FROM [1000] TO [1100]
+2019-02-06 19:28:51 INFO  PostBhavcopyData:70 - FROM [1100] TO [1200]
+2019-02-06 19:28:51 INFO  PostBhavcopyData:70 - FROM [1200] TO [1300]
+2019-02-06 19:28:51 INFO  PostBhavcopyData:70 - FROM [1300] TO [1400]
+2019-02-06 19:28:51 INFO  PostBhavcopyData:70 - FROM [1400] TO [1500]
+2019-02-06 19:28:51 INFO  PostBhavcopyData:70 - FROM [1500] TO [1600]
+2019-02-06 19:28:51 INFO  PostBhavcopyData:70 - FROM [1600] TO [1700]
+2019-02-06 19:28:52 INFO  PostBhavcopyData:70 - FROM [1700] TO [1800]
+2019-02-06 19:28:52 INFO  PostBhavcopyData:70 - FROM [1800] TO [1900]
+2019-02-06 19:28:52 INFO  PostBhavcopyData:99 - D:\fincash-marketing-automation\download\cm05FEB2019bhav.csv.zip
+2019-02-06 19:28:52 INFO  PostBhavcopyData:100 - D:\fincash-marketing-automation\download\cm05FEB2019bhav.csv
+2019-02-06 19:32:42 INFO  bhavcopyDownload:55 - cm05FEB2019bhav.csv.zip
+2019-02-06 19:32:58 INFO  PostBhavcopyData:29 - cm05FEB2019bhav.csv
+2019-02-06 19:32:58 INFO  PostBhavcopyData:71 - FROM [0] TO [100]
+2019-02-06 19:32:59 INFO  PostBhavcopyData:71 - FROM [100] TO [200]
+2019-02-06 19:32:59 INFO  PostBhavcopyData:71 - FROM [200] TO [300]
+2019-02-06 19:32:59 INFO  PostBhavcopyData:71 - FROM [300] TO [400]
+2019-02-06 19:32:59 INFO  PostBhavcopyData:71 - FROM [400] TO [500]
+2019-02-06 19:32:59 INFO  PostBhavcopyData:71 - FROM [500] TO [600]
+2019-02-06 19:32:59 INFO  PostBhavcopyData:71 - FROM [600] TO [700]
+2019-02-06 19:32:59 INFO  PostBhavcopyData:71 - FROM [700] TO [800]
+2019-02-06 19:32:59 INFO  PostBhavcopyData:71 - FROM [800] TO [900]
+2019-02-06 19:32:59 INFO  PostBhavcopyData:71 - FROM [900] TO [1000]
+2019-02-06 19:32:59 INFO  PostBhavcopyData:71 - FROM [1000] TO [1100]
+2019-02-06 19:32:59 INFO  PostBhavcopyData:71 - FROM [1100] TO [1200]
+2019-02-06 19:32:59 INFO  PostBhavcopyData:71 - FROM [1200] TO [1300]
+2019-02-06 19:32:59 INFO  PostBhavcopyData:71 - FROM [1300] TO [1400]
+2019-02-06 19:32:59 INFO  PostBhavcopyData:71 - FROM [1400] TO [1500]
+2019-02-06 19:32:59 INFO  PostBhavcopyData:71 - FROM [1500] TO [1600]
+2019-02-06 19:33:00 INFO  PostBhavcopyData:71 - FROM [1600] TO [1700]
+2019-02-06 19:33:00 INFO  PostBhavcopyData:71 - FROM [1700] TO [1800]
+2019-02-06 19:33:00 INFO  PostBhavcopyData:71 - FROM [1800] TO [1900]
+2019-02-06 19:33:00 INFO  PostBhavcopyData:100 - D:\fincash-marketing-automation\download\cm05FEB2019bhav.csv.zip
+2019-02-06 19:33:00 INFO  PostBhavcopyData:101 - D:\fincash-marketing-automation\download\cm05FEB2019bhav.csv

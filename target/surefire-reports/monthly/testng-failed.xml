@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="-1" guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [monthly]">
+  <listeners>
+    <listener class-name="customListener.Listener"/>
+    <listener class-name="customListener.RetryListener"/>
+  </listeners>
+  <test verbose="0" name="screenerData(failed)">
+    <classes>
+      <class name="screener.ScreenerAutomation">
+        <methods>
+          <include name="setup"/>
+          <include name="screenerData"/>
+          <include name="closeBrowser"/>
+        </methods>
+      </class> <!-- screener.ScreenerAutomation -->
+    </classes>
+  </test> <!-- screenerData(failed) -->
+</suite> <!-- Failed suite [monthly] -->

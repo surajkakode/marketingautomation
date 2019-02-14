@@ -1,0 +1,6 @@
+package screener;
+
+public class ProfitAndLoss {
+
+    private String hh;
+}

@@ -1,0 +1,124 @@
+package screener;
+
+public class BalanceSheet {
+
+    private String type;
+    private String currentYear_1;   //last currentYear_1 = one year previous to  current year
+    private String currentYear_2;
+    private String currentYear_3;
+    private String currentYear_4;
+    private String currentYear_5;
+    private String currentYear_6;
+    private String currentYear_7;
+    private String currentYear_8;
+    private String currentYear_9;
+    private String currentYear_10;
+    private String currentYear_11;
+    private String currentYear_12;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getCurrentYear_1() {
+        return currentYear_1;
+    }
+
+    public void setCurrentYear_1(String currentYear_1) {
+        this.currentYear_1 = currentYear_1;
+    }
+
+    public String getCurrentYear_2() {
+        return currentYear_2;
+    }
+
+    public void setCurrentYear_2(String currentYear_2) {
+        this.currentYear_2 = currentYear_2;
+    }
+
+    public String getCurrentYear_3() {
+        return currentYear_3;
+    }
+
+    public void setCurrentYear_3(String currentYear_3) {
+        this.currentYear_3 = currentYear_3;
+    }
+
+    public String getCurrentYear_4() {
+        return currentYear_4;
+    }
+
+    public void setCurrentYear_4(String currentYear_4) {
+        this.currentYear_4 = currentYear_4;
+    }
+
+    public String getCurrentYear_5() {
+        return currentYear_5;
+    }
+
+    public void setCurrentYear_5(String currentYear_5) {
+        this.currentYear_5 = currentYear_5;
+    }
+
+    public String getCurrentYear_6() {
+        return currentYear_6;
+    }
+
+    public void setCurrentYear_6(String currentYear_6) {
+        this.currentYear_6 = currentYear_6;
+    }
+
+    public String getCurrentYear_7() {
+        return currentYear_7;
+    }
+
+    public void setCurrentYear_7(String currentYear_7) {
+        this.currentYear_7 = currentYear_7;
+    }
+
+    public String getCurrentYear_8() {
+        return currentYear_8;
+    }
+
+    public void setCurrentYear_8(String currentYear_8) {
+        this.currentYear_8 = currentYear_8;
+    }
+
+    public String getCurrentYear_9() {
+        return currentYear_9;
+    }
+
+    public void setCurrentYear_9(String currentYear_9) {
+        this.currentYear_9 = currentYear_9;
+    }
+
+    public String getCurrentYear_10() {
+        return currentYear_10;
+    }
+
+    public void setCurrentYear_10(String currentYear_10) {
+        this.currentYear_10 = currentYear_10;
+    }
+
+    public String getCurrentYear_11() {
+        return currentYear_11;
+    }
+
+    public void setCurrentYear_11(String currentYear_11) {
+        this.currentYear_11 = currentYear_11;
+    }
+
+    public String getCurrentYear_12() {
+        return currentYear_12;
+    }
+
+    public void setCurrentYear_12(String currentYear_12) {
+        this.currentYear_12 = currentYear_12;
+    }
+
+
+}

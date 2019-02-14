@@ -1,0 +1,369 @@
+package screener;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class HomePage {
+
+    public static final Logger log = Logger.getLogger(HomePage.class.getName());
+    WebDriver driver;
+    public HomePage(WebDriver driver)
+    {
+        this.driver =driver;
+        PageFactory.initElements(driver,this);
+    }
+
+    @FindBy(xpath = "//*[@id='company-info']/h1")
+    private WebElement companyName;
+
+    @FindBy(xpath = "//*[@id='company-info']/following-sibling::p")
+    private WebElement companyInfo;
+
+    @FindBy(xpath = "//section[1]")
+    private WebElement companyValue;
+
+    @FindBy(xpath = "//*[@id='analysis']/div/div[1]")
+    private WebElement pros;
+    @FindBy(xpath = "//*[@id='analysis']/div/div[2]")
+    private WebElement cons;
+
+    @FindBy(xpath = "//*[@id='peers']//tbody")
+    private WebElement peers;
+
+    @FindBy(xpath = "//*[@id='quarters']//tbody")
+    private WebElement quarters;
+
+    @FindBy(xpath = "//*[@id='profit-loss']//tbody")
+    private List<WebElement> profitLoss;
+
+    @FindBy(xpath = "//*[@id='balance-sheet']//tbody")
+    private WebElement balanceSheet;
+
+    @FindBy(xpath = "//*[@id='cash-flow']//tbody")
+    private WebElement cashFlow;
+
+    @FindBy(xpath = "//*[@id='ratios']//tbody")
+    private WebElement ratiostable;
+
+    @FindBy(xpath = "//*[contains(text(),'Recent Announcements')]/following-sibling::ul")
+    private WebElement announcement;
+    @FindBy(xpath = "//*[contains(text(),'Annual Reports')]/following-sibling::ul")
+    private WebElement reports;
+    @FindBy(xpath = "//*[contains(text(),'Credit Ratings')]/following-sibling::ul")
+    private WebElement ratings;
+
+    @FindBy(xpath = "//tr//button")
+    private List<WebElement> expand;
+
+    public void expandAllRow()
+    {
+        for (WebElement element:expand)
+        {
+            element.click();
+        }
+    }
+
+    public String getCompanyName()
+    {
+        return companyName.getText();
+    }
+
+    public String getCompanyInfo()
+    {
+        return companyInfo.getText();
+    }
+
+    public String getCompanyValue()
+    {
+        return companyValue.getText();
+    }
+    public String getPros()
+    {
+        return pros.getText();
+    }
+    public String getCons()
+    {
+        return cons.getText();
+    }
+
+    public List<Peers> getPeers() {
+
+        List<Peers> peersList=new ArrayList<>();
+        List <WebElement> rows = peers.findElements(By.tagName("tr"));
+
+        for (int i=1;i<rows.size();i++)
+        {
+            List<WebElement> cols =rows.get(i).findElements(By.tagName("td"));
+
+            Peers peers =new Peers();
+            peers.setSno(cols.get(0).getText());
+            peers.setName(cols.get(1).getText());
+            peers.setCmp(cols.get(2).getText());
+            peers.setMarcap(cols.get(3).getText());
+            peers.setDividendyeild(cols.get(4).getText());
+            peers.setNetprofitlatestQauter(cols.get(5).getText());
+            peers.setYouquarterlyprofitgrowth(cols.get(6).getText());
+            peers.setSaleslatestquarter(cols.get(7).getText());
+            peers.setYoyquarterlysalesgrowth(cols.get(8).getText());
+            peers.setRoce(cols.get(9).getText());
+
+            peersList.add(peers);
+        }
+        return peersList;
+    }
+
+    public List<Quarters> getQuarters() {
+        List<Quarters> quartersList =new ArrayList<>();
+        List <WebElement> rows = quarters.findElements(By.tagName("tr"));
+
+        for (int i=1;i<rows.size();i++)
+        {
+            List<WebElement> cols =rows.get(i).findElements(By.tagName("td"));
+
+            Quarters quarters =new Quarters();
+            quarters.setType(cols.get(0).getText());
+            quarters.setLastquater_12(cols.get(1).getText());
+            quarters.setLastquater_11(cols.get(2).getText());
+            quarters.setLastquater_10(cols.get(3).getText());
+            quarters.setLastquater_9(cols.get(4).getText());
+            quarters.setLastquater_8(cols.get(5).getText());
+            quarters.setLastquater_7(cols.get(6).getText());
+            quarters.setLastquater_6(cols.get(7).getText());
+            quarters.setLastquater_5(cols.get(8).getText());
+            quarters.setLastquater_4(cols.get(9).getText());
+            quarters.setLastquater_3(cols.get(10).getText());
+            quarters.setLastquater_2(cols.get(11).getText());
+            quarters.setLastquater_1(cols.get(12).getText());
+
+
+            quartersList.add(quarters);
+        }
+        return quartersList;
+    }
+
+    public List<ProfitAndLoss> getProfitLoss() {
+        List<ProfitAndLoss> profitAndLossList =new ArrayList<>();
+        List <WebElement> rows = profitLoss.get(0).findElements(By.tagName("tr"));
+
+        for (int i=1;i<rows.size();i++)
+        {
+            List<WebElement> cols =rows.get(i).findElements(By.tagName("td"));
+
+            ProfitAndLoss obj =new ProfitAndLoss();
+            obj.setType(cols.get(0).getText());
+            obj.setCurrentYear_12(cols.get(1).getText());
+            obj.setCurrentYear_11(cols.get(2).getText());
+            obj.setCurrentYear_10(cols.get(3).getText());
+            obj.setCurrentYear_9(cols.get(4).getText());
+            obj.setCurrentYear_8(cols.get(5).getText());
+            obj.setCurrentYear_7(cols.get(6).getText());
+            obj.setCurrentYear_6(cols.get(7).getText());
+            obj.setCurrentYear_5(cols.get(8).getText());
+            obj.setCurrentYear_4(cols.get(9).getText());
+            obj.setCurrentYear_3(cols.get(10).getText());
+            obj.setCurrentYear_2(cols.get(11).getText());
+            obj.setCurrentYear_1(cols.get(12).getText());
+            obj.setTtm(cols.get(13).getText());
+            profitAndLossList.add(obj);
+        }
+        return profitAndLossList;
+    }
+
+    public List<CompoundSalesGrowth> getCompoundSalesGrowth() {
+        List<CompoundSalesGrowth> list =new ArrayList<>();
+        List <WebElement> rows = profitLoss.get(1).findElements(By.tagName("tr"));
+
+        for (int i=1;i<rows.size();i++)
+        {
+            List<WebElement> cols =rows.get(i).findElements(By.tagName("td"));
+            CompoundSalesGrowth obj =new CompoundSalesGrowth();
+
+            obj.setTenYear(cols.get(0).getText());
+            obj.setFiveYear(cols.get(1).getText());
+            obj.setThreeYear(cols.get(2).getText());
+            obj.setTtm(cols.get(3).getText());
+            list.add(obj);
+        }
+        return list;
+    }
+
+    public List<CompoundProfitGrowth> getCompoundProfitGrowth() {
+        List<CompoundProfitGrowth> list =new ArrayList<>();
+        List <WebElement> rows = profitLoss.get(2).findElements(By.tagName("tr"));
+
+        for (int i=1;i<rows.size();i++)
+        {
+            List<WebElement> cols =rows.get(i).findElements(By.tagName("td"));
+            CompoundProfitGrowth obj =new CompoundProfitGrowth();
+
+            obj.setTenYear(cols.get(0).getText());
+            obj.setFiveYear(cols.get(1).getText());
+            obj.setThreeYear(cols.get(2).getText());
+            obj.setTtm(cols.get(3).getText());
+            list.add(obj);
+        }
+        return list;
+    }
+
+    public List<ReturnOnEquity> getReturnOnEquity() {
+        List<ReturnOnEquity> list =new ArrayList<>();
+        List <WebElement> rows = profitLoss.get(3).findElements(By.tagName("tr"));
+
+        for (int i=1;i<rows.size();i++)
+        {
+            List<WebElement> cols =rows.get(i).findElements(By.tagName("td"));
+            ReturnOnEquity obj =new ReturnOnEquity();
+
+            obj.setTenYear(cols.get(0).getText());
+            obj.setFiveYear(cols.get(1).getText());
+            obj.setThreeYear(cols.get(2).getText());
+            obj.setTtm(cols.get(3).getText());
+            list.add(obj);
+        }
+        return list;
+    }
+
+
+
+    public List<BalanceSheet> getBalanceSheet() {
+        List<BalanceSheet> balanceSheetList =new ArrayList<>();
+        List <WebElement> rows = balanceSheet.findElements(By.tagName("tr"));
+
+        for (int i=1;i<rows.size();i++)
+        {
+            List<WebElement> cols =rows.get(i).findElements(By.tagName("td"));
+
+            BalanceSheet obj =new BalanceSheet();
+            obj.setType(cols.get(0).getText());
+            obj.setCurrentYear_12(cols.get(1).getText());
+            obj.setCurrentYear_11(cols.get(2).getText());
+            obj.setCurrentYear_10(cols.get(3).getText());
+            obj.setCurrentYear_9(cols.get(4).getText());
+            obj.setCurrentYear_8(cols.get(5).getText());
+            obj.setCurrentYear_7(cols.get(6).getText());
+            obj.setCurrentYear_6(cols.get(7).getText());
+            obj.setCurrentYear_5(cols.get(8).getText());
+            obj.setCurrentYear_4(cols.get(9).getText());
+            obj.setCurrentYear_3(cols.get(10).getText());
+            obj.setCurrentYear_2(cols.get(11).getText());
+            obj.setCurrentYear_1(cols.get(12).getText());
+
+
+            balanceSheetList.add(obj);
+        }
+        return balanceSheetList;
+    }
+
+    public List<CashFlow> getCashFlow() {
+        List<CashFlow> cashFlowList =new ArrayList<>();
+        List <WebElement> rows = cashFlow.findElements(By.tagName("tr"));
+
+        for (int i=1;i<rows.size();i++)
+        {
+            List<WebElement> cols =rows.get(i).findElements(By.tagName("td"));
+
+            CashFlow obj =new CashFlow();
+            obj.setType(cols.get(0).getText());
+            obj.setCurrentYear_12(cols.get(1).getText());
+            obj.setCurrentYear_11(cols.get(2).getText());
+            obj.setCurrentYear_10(cols.get(3).getText());
+            obj.setCurrentYear_9(cols.get(4).getText());
+            obj.setCurrentYear_8(cols.get(5).getText());
+            obj.setCurrentYear_7(cols.get(6).getText());
+            obj.setCurrentYear_6(cols.get(7).getText());
+            obj.setCurrentYear_5(cols.get(8).getText());
+            obj.setCurrentYear_4(cols.get(9).getText());
+            obj.setCurrentYear_3(cols.get(10).getText());
+            obj.setCurrentYear_2(cols.get(11).getText());
+            obj.setCurrentYear_1(cols.get(12).getText());
+
+            cashFlowList.add(obj);
+        }
+        return cashFlowList;
+    }
+
+    public List<Ratio> getRatios() {
+        List<Ratio> ratioList =new ArrayList<>();
+        List <WebElement> rows = ratiostable.findElements(By.tagName("tr"));
+
+        for (int i=1;i<rows.size();i++)
+        {
+            List<WebElement> cols =rows.get(i).findElements(By.tagName("td"));
+
+            Ratio obj =new Ratio();
+            obj.setType(cols.get(0).getText());
+            obj.setCurrentYear_12(cols.get(1).getText());
+            obj.setCurrentYear_11(cols.get(2).getText());
+            obj.setCurrentYear_10(cols.get(3).getText());
+            obj.setCurrentYear_9(cols.get(4).getText());
+            obj.setCurrentYear_8(cols.get(5).getText());
+            obj.setCurrentYear_7(cols.get(6).getText());
+            obj.setCurrentYear_6(cols.get(7).getText());
+            obj.setCurrentYear_5(cols.get(8).getText());
+            obj.setCurrentYear_4(cols.get(9).getText());
+            obj.setCurrentYear_3(cols.get(10).getText());
+            obj.setCurrentYear_2(cols.get(11).getText());
+            obj.setCurrentYear_1(cols.get(12).getText());
+
+
+            ratioList.add(obj);
+        }
+        return ratioList;
+    }
+
+    public List<RecentAnnouncements> getRecentAnnuouncement() {
+        List<RecentAnnouncements> documentsList =new ArrayList<>();
+        List <WebElement> rows = announcement.findElements(By.tagName("li"));
+
+        for (int i=1;i<rows.size();i++)
+        {
+            RecentAnnouncements obj =new RecentAnnouncements();
+
+            obj.setName(rows.get(i).findElement(By.tagName("a")).getText());
+            obj.setLink(rows.get(i).findElement(By.tagName("a")).getAttribute("href"));
+            obj.setDate(rows.get(i).findElement(By.tagName("span")).getText());
+            documentsList.add(obj);
+        }
+        return documentsList;
+    }
+
+    public List<AnnualReports> getAnnualReports() {
+        List<AnnualReports> documentsList =new ArrayList<>();
+        List <WebElement> rows = reports.findElements(By.tagName("li"));
+
+        for (int i=1;i<rows.size();i++)
+        {
+            AnnualReports obj =new AnnualReports();
+
+            obj.setName(rows.get(i).findElement(By.tagName("a")).getText());
+            obj.setLink(rows.get(i).findElement(By.tagName("a")).getAttribute("href"));
+            obj.setFrom(rows.get(i).findElement(By.tagName("span")).getText());
+            documentsList.add(obj);
+        }
+        return documentsList;
+    }
+
+    public List<CreditRatings> getCreditRatings() {
+        List<CreditRatings> documentsList =new ArrayList<>();
+        List <WebElement> rows = ratings.findElements(By.tagName("li"));
+
+        for (int i=1;i<rows.size();i++)
+        {
+            CreditRatings obj =new CreditRatings();
+
+            obj.setName(rows.get(i).findElement(By.tagName("a")).getText());
+            obj.setLink(rows.get(i).findElement(By.tagName("a")).getAttribute("href"));
+            obj.setCredit(rows.get(i).findElement(By.tagName("span")).getText());
+            documentsList.add(obj);
+        }
+        return documentsList;
+    }
+
+}

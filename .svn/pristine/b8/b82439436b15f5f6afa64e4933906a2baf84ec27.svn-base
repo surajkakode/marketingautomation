@@ -1,0 +1,114 @@
+package bhavcopy;
+
+import com.google.gson.Gson;
+import io.restassured.RestAssured;
+import io.restassured.authentication.PreemptiveBasicAuthScheme;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import org.apache.log4j.Logger;
+import org.testng.annotations.Test;
+import testBase.TestBase;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class PostBhavcopyData {
+
+    public static final Logger log = Logger.getLogger(PostBhavcopyData.class.getName());
+
+    public static final int  batchCount=100;
+
+    @Test
+    public void postBhavcopyData()  throws IOException {
+        String name = System.getProperty("csvFile");
+        name= name.replace(".csv.zip",".csv");
+        log.info(name);
+        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("downloadPath")+ File.separator+name));/*System.getProperty("csvFile").replace(".csv.zip",".csv")*/
+        String line;
+        List<BhavcopyData> cols = new ArrayList<>();
+        // String[] data = null;
+        int i =0;
+        while ((line = br.readLine()) != null) {
+
+            // use comma as separator
+            String[] data = line.split(",");
+
+            //SYMBOL	SERIES	OPEN	HIGH	LOW	CLOSE	LAST	PREVCLOSE	TOTTRDQTY	TOTTRDVAL	TIMESTAMP	TOTALTRADES	ISIN
+            if (data.length==13 && i > 0) {
+
+                BhavcopyData copyData = new BhavcopyData();
+                copyData.setSymbol(data[0]);
+                copyData.setSeries(data[1]);
+                copyData.setOpen(data[2]);
+                copyData.setHigh(data[3]);
+                copyData.setLow(data[4]);
+                copyData.setClose(data[5]);
+                copyData.setLast(data[6]);
+                copyData.setPrevious(data[7]);
+                copyData.setTradedquantity(data[8]);
+                copyData.setTotaltradedvalue(data[9]);
+                copyData.setTimestamp(data[10]);
+                copyData.setTotaltrades(data[11]);
+                copyData.setIsin(data[12]);
+                //System.out.print(Arrays.toString(data));
+                cols.add(copyData);
+            }
+            i++;
+        }
+        br.close();
+        // cols.remove(0);
+
+        int count = cols.size() / batchCount;
+        int remainder = cols.size() % batchCount;
+
+        for(int k =0;k < count; k++) {
+            int from = k*batchCount;
+            int to = (k+1)*batchCount;
+            log.info("FROM ["+from + "] TO ["+ to+"]");
+            postData(cols.subList(from, to));
+        }
+
+        if (remainder > 0) {
+            postData(cols.subList(count*batchCount, (count*batchCount) + remainder));
+        }
+
+        deleteFile();
+    }
+
+    public void postData(List<BhavcopyData> data) {
+        PreemptiveBasicAuthScheme authScheme = new PreemptiveBasicAuthScheme();
+        authScheme.setUserName(System.getProperty("userName"));
+        authScheme.setPassword(System.getProperty("passWord"));
+        RestAssured.authentication = authScheme;
+        RequestSpecification request = RestAssured.given();
+        request.header("Content-Type", "application/json");
+        Gson gson = new Gson();
+        String json =  gson.toJson(data);
+        request.body(json);
+        Response response = request.post(System.getProperty("URI"));
+    }
+
+    public void deleteFile()
+    {
+        String name = System.getProperty("csvFile");
+        name= name.replace(".csv.zip",".csv");
+
+        log.info(System.getProperty("downloadPath")+File.separator+System.getProperty("csvFile"));
+        log.info(System.getProperty("downloadPath")+File.separator+name);
+        File zipfile = new File(System.getProperty("downloadPath")+File.separator+System.getProperty("csvFile"));
+        File unzipedfile = new File(System.getProperty("downloadPath")+File.separator+name);
+        if(zipfile!=null){
+            zipfile.delete();
+            log.debug("zipped file deleted");
+        }else log.error("zipped File not Found");
+        if(unzipedfile!=null){
+            unzipedfile.delete();
+            log.debug("unzipped file deleted");
+        }else log.error("unzipped File not Found");
+    }
+    }
+

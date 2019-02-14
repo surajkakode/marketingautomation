@@ -1,0 +1,190 @@
+package screener;
+
+import java.util.List;
+
+public class Screener {
+
+
+    private String ticker;
+    private String companyName;
+    private String companyInfo;
+    private CompanyValue companyValue;
+    private String pros;
+    private String con;
+    private List<Quarters> quarters;
+    private List<ProfitAndLoss> profitLoss;
+    private List<CompoundSalesGrowth> compSalesGrowth;
+    private List<CompoundProfitGrowth> compoundProfitGrowths;
+    private List<ReturnOnEquity> returnOnEquities;
+    private List<BalanceSheet> balanceSheet;
+    private List<CashFlow> cashFlow;
+    private List<Ratio> ratios;
+    private List<RecentAnnouncements> recentAnnouncements;
+    private List<AnnualReports> annualReports;
+    private List<CreditRatings> creditRatings;
+
+
+    public String getTicker() {
+        return ticker;
+    }
+
+    public void setTicker(String ticker) {
+        this.ticker = ticker;
+    }
+
+    public List<CompoundSalesGrowth> getCompSalesGrowth() {
+        return compSalesGrowth;
+    }
+
+    public void setCompSalesGrowth(List<CompoundSalesGrowth> compSalesGrowth) {
+        this.compSalesGrowth = compSalesGrowth;
+    }
+
+    public List<CompoundProfitGrowth> getCompoundProfitGrowths() {
+        return compoundProfitGrowths;
+    }
+
+    public void setCompoundProfitGrowths(List<CompoundProfitGrowth> compoundProfitGrowths) {
+        this.compoundProfitGrowths = compoundProfitGrowths;
+    }
+
+    public List<ReturnOnEquity> getReturnOnEquities() {
+        return returnOnEquities;
+    }
+
+    public void setReturnOnEquities(List<ReturnOnEquity> returnOnEquities) {
+        this.returnOnEquities = returnOnEquities;
+    }
+
+
+
+    public List<RecentAnnouncements> getRecentAnnouncements() {
+        return recentAnnouncements;
+    }
+
+    public void setRecentAnnouncements(List<RecentAnnouncements> recentAnnouncements) {
+        this.recentAnnouncements = recentAnnouncements;
+    }
+
+    public List<AnnualReports> getAnnualReports() {
+        return annualReports;
+    }
+
+    public void setAnnualReports(List<AnnualReports> annualReports) {
+        this.annualReports = annualReports;
+    }
+
+    public List<CreditRatings> getCreditRatings() {
+        return creditRatings;
+    }
+
+    public void setCreditRatings(List<CreditRatings> creditRatings) {
+        this.creditRatings = creditRatings;
+    }
+
+
+
+
+
+    public List<ProfitAndLoss> getProfitLoss() {
+        return profitLoss;
+    }
+
+    public void setProfitLoss(List<ProfitAndLoss> profitLoss) {
+        this.profitLoss = profitLoss;
+    }
+
+    public List<BalanceSheet> getBalanceSheet() {
+        return balanceSheet;
+    }
+
+    public void setBalanceSheet(List<BalanceSheet> balanceSheet) {
+        this.balanceSheet = balanceSheet;
+    }
+
+    public List<CashFlow> getCashFlow() {
+        return cashFlow;
+    }
+
+    public void setCashFlow(List<CashFlow> cashFlow) {
+        this.cashFlow = cashFlow;
+    }
+
+    public List<Ratio> getRatios() {
+        return ratios;
+    }
+
+    public void setRatios(List<Ratio> ratios) {
+        this.ratios = ratios;
+    }
+
+
+
+
+    public List<Peers> getPeers() {
+        return peers;
+    }
+
+    public void setPeers(List<Peers> peers) {
+        this.peers = peers;
+    }
+
+    public List<Peers> peers;
+
+    public List<Quarters> getQuarters() {
+        return quarters;
+    }
+
+    public void setQuarters(List<Quarters> quarters) {
+        this.quarters = quarters;
+    }
+
+
+
+
+    public CompanyValue getCompanyValue() {
+        return companyValue;
+    }
+
+    public void setCompanyValue(CompanyValue companyValue) {
+        this.companyValue = companyValue;
+    }
+
+
+
+    public String getPros() {
+        return pros;
+    }
+
+    public void setPros(String pros) {
+        this.pros = pros;
+    }
+
+    public String getCon() {
+        return con;
+    }
+
+    public void setCon(String con) {
+        this.con = con;
+    }
+
+
+
+    public String getCompanyName() {
+        return this.companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getCompanyInfo() {
+        return this.companyInfo;
+    }
+
+    public void setCompanyInfo(String companyInfo) {
+        this.companyInfo = companyInfo;
+    }
+
+
+}

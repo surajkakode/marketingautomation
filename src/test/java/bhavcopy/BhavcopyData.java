@@ -1,0 +1,124 @@
+package bhavcopy;
+
+public class BhavcopyData {
+
+    private String symbol;
+    private String series;
+    private String open;
+    private String high;
+    private String low;
+    private String close;
+    private String last;
+    private String previous;
+    private String tradedquantity;
+    private String totaltradedvalue;
+    private String timestamp;
+    private String totaltrades;
+    private String isin;
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public String getSeries() {
+        return series;
+    }
+
+    public void setSeries(String series) {
+        this.series = series;
+    }
+
+    public String getOpen() {
+        return open;
+    }
+
+    public void setOpen(String open) {
+        this.open = open;
+    }
+
+    public String getHigh() {
+        return high;
+    }
+
+    public void setHigh(String high) {
+        this.high = high;
+    }
+
+    public String getLow() {
+        return low;
+    }
+
+    public void setLow(String low) {
+        this.low = low;
+    }
+
+    public String getClose() {
+        return close;
+    }
+
+    public void setClose(String close) {
+        this.close = close;
+    }
+
+    public String getLast() {
+        return last;
+    }
+
+    public void setLast(String last) {
+        this.last = last;
+    }
+
+    public String getPrevious() {
+        return previous;
+    }
+
+    public void setPrevious(String previous) {
+        this.previous = previous;
+    }
+
+    public String getTradedquantity() {
+        return tradedquantity;
+    }
+
+    public void setTradedquantity(String tradedquantity) {
+        this.tradedquantity = tradedquantity;
+    }
+
+    public String getTotaltradedvalue() {
+        return totaltradedvalue;
+    }
+
+    public void setTotaltradedvalue(String totaltradedvalue) {
+        this.totaltradedvalue = totaltradedvalue;
+    }
+
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getTotaltrades() {
+        return totaltrades;
+    }
+
+    public void setTotaltrades(String totaltrades) {
+        this.totaltrades = totaltrades;
+    }
+
+    public String getIsin() {
+        return isin;
+    }
+
+    public void setIsin(String isin) {
+        this.isin = isin;
+    }
+
+
+}

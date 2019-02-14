@@ -1,0 +1,40 @@
+package screener;
+
+public class CompoundProfitGrowth {
+    private String tenYear;
+    private String FiveYear;
+    private String threeYear;
+    private String ttm;
+    public String getTenYear() {
+        return tenYear;
+    }
+
+    public void setTenYear(String tenYear) {
+        this.tenYear = tenYear;
+    }
+
+    public String getFiveYear() {
+        return FiveYear;
+    }
+
+    public void setFiveYear(String fiveYear) {
+        FiveYear = fiveYear;
+    }
+
+    public String getThreeYear() {
+        return threeYear;
+    }
+
+    public void setThreeYear(String threeYear) {
+        this.threeYear = threeYear;
+    }
+
+    public String getTtm() {
+        return ttm;
+    }
+
+    public void setTtm(String ttm) {
+        this.ttm = ttm;
+    }
+
+}

@@ -1,0 +1,25 @@
+package screener;
+
+public class ReturnOnEquity {
+
+    private String years;
+    private String returns;
+
+    public String getYears() {
+        return years;
+    }
+
+    public void setYears(String years) {
+        this.years = years;
+    }
+
+    public String getReturns() {
+        return returns;
+    }
+
+    public void setReturns(String returns) {
+        this.returns = returns;
+    }
+
+
+}

@@ -1,0 +1,157 @@
+package screener;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class HomePage {
+
+    public static final Logger log = Logger.getLogger(HomePage.class.getName());
+    WebDriver driver;
+    public HomePage(WebDriver driver)
+    {
+        this.driver =driver;
+        PageFactory.initElements(driver,this);
+    }
+
+    @FindBy(xpath = "//*[@id='company-info']/h1")
+    private WebElement companyName;
+
+    @FindBy(xpath = "//*[@id='company-info']/following-sibling::p")
+    private WebElement companyInfo;
+
+    @FindBy(xpath = "//section[1]")
+    private WebElement companyValue;
+
+    @FindBy(xpath = "//*[@id='analysis']/div/div[1]")
+    private WebElement pros;
+    @FindBy(xpath = "//*[@id='analysis']/div/div[2]")
+    private WebElement cons;
+
+    @FindBy(xpath = "//*[@id='peers']//tbody")
+    private WebElement peers;
+
+    @FindBy(xpath = "//*[@id='quarters']//tbody")
+    private WebElement quarters;
+
+    @FindBy(id = "profit-loss")
+    private WebElement profitLoss;
+
+    @FindBy(id = "balance-sheet")
+    private WebElement balanceSheet;
+
+    @FindBy(id = "cash-flow")
+    private WebElement cashFlow;
+
+    @FindBy(id = "ratios")
+    private WebElement ratios;
+
+    @FindBy(id = "documents")
+    private WebElement documents;
+
+    public String getCompanyName()
+    {
+        return companyName.getText();
+    }
+
+    public String getCompanyInfo()
+    {
+        return companyInfo.getText();
+    }
+
+    public String getCompanyValue()
+    {
+        return companyValue.getText();
+    }
+    public String getPros()
+    {
+        return pros.getText();
+    }
+    public String getCons()
+    {
+        return cons.getText();
+    }
+
+    public List<Peers> getPeers() {
+
+        List<Peers> peersList=new ArrayList<>();
+        List <WebElement> rows = peers.findElements(By.tagName("tr"));
+
+        for (int i=1;i<rows.size();i++)
+        {
+            List<WebElement> cols =rows.get(i).findElements(By.tagName("td"));
+
+            Peers peers =new Peers();
+            peers.setSno(cols.get(0).getText());
+            peers.setName(cols.get(1).getText());
+            peers.setCmp(cols.get(2).getText());
+            peers.setMarcap(cols.get(3).getText());
+            peers.setDividendyeild(cols.get(4).getText());
+            peers.setNetprofitlatestQauter(cols.get(5).getText());
+            peers.setYouquarterlyprofitgrowth(cols.get(6).getText());
+            peers.setSaleslatestquarter(cols.get(7).getText());
+            peers.setYoyquarterlysalesgrowth(cols.get(8).getText());
+            peers.setRoce(cols.get(9).getText());
+
+            peersList.add(peers);
+        }
+        return peersList;
+    }
+
+    public List<Quarters> getQuarters() {
+        List<Quarters> quartersList =new ArrayList<>();
+        List <WebElement> rows = quarters.findElements(By.tagName("tr"));
+
+        for (int i=1;i<rows.size();i++)
+        {
+            List<WebElement> cols =rows.get(i).findElements(By.tagName("td"));
+
+            Quarters quarters =new Quarters();
+            quarters.setType(cols.get(0).getText());
+            quarters.setLastquater_12(cols.get(1).getText());
+            quarters.setLastquater_11(cols.get(2).getText());
+            quarters.setLastquater_10(cols.get(3).getText());
+            quarters.setLastquater_9(cols.get(4).getText());
+            quarters.setLastquater_8(cols.get(5).getText());
+            quarters.setLastquater_7(cols.get(6).getText());
+            quarters.setLastquater_6(cols.get(7).getText());
+            quarters.setLastquater_5(cols.get(8).getText());
+            quarters.setLastquater_4(cols.get(9).getText());
+            quarters.setLastquater_3(cols.get(10).getText());
+            quarters.setLastquater_2(cols.get(11).getText());
+            quarters.setLastquater_1(cols.get(12).getText());
+
+
+            quartersList.add(quarters);
+        }
+        return quartersList;
+    }
+
+    public String getProfitLoss() {
+        return profitLoss.getText();
+    }
+
+    public String getBalanceSheet() {
+        return balanceSheet.getText();
+    }
+
+    public String getCashFlow() {
+        return cashFlow.getText();
+    }
+
+    public String getRatios() {
+        return ratios.getText();
+    }
+
+    public String getDocuments() {
+        return documents.getText();
+    }
+
+
+}

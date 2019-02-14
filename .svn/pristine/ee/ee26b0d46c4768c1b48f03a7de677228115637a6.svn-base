@@ -1,0 +1,151 @@
+package screener;
+
+import org.apache.log4j.Logger;
+
+import org.testng.annotations.*;
+import org.testng.annotations.Test;
+import testBase.TestBase;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.*;
+
+public class ScreenerAutomation extends TestBase {
+
+
+    public static final Logger log = Logger.getLogger(ScreenerAutomation.class.getName());
+
+
+    @BeforeTest
+    public void setup() {
+        init();
+//        try {
+//            loadUserProperty();
+//        } catch (IOException e) {
+//            log.error(e);
+//        }
+    }
+
+
+    public String csvFile;
+
+    private String companyName;
+    private String companyInfo;
+    private String companyValue;
+    private String prosAndCons;
+    private String peers;
+    private String quarters;
+    private String profitLoss;
+    private String balanceSheet;
+    private String cashFlow;
+    private String ratios;
+    private String documents;
+
+
+    public static List<Screener> screenerList = new ArrayList<>();
+
+    //private String ticker;
+
+//    public void loadUserProperty() throws IOException {
+//        this.csvFile = System.getProperty("csvFile");
+//        log.info(this.csvFile);
+//    }
+
+    @DataProvider(name = "symbol")
+    public Iterator<Object []> bhavcopyReader() throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("csvFile")));
+        String line;
+        List<Object[]> cols = new ArrayList<>();
+        String[] data = null;
+        while ((line = br.readLine()) != null) {
+            // use comma as separator
+            data = line.split(",");
+            cols.add(data);
+
+        }
+        cols.remove(0);
+        return cols.iterator();
+
+
+    }
+
+    @Test(dataProvider = "symbol")
+    public void screenerData(String SYMBOL, String SERIES, String OPEN, String HIGH, String LOW, String CLOSE, String LAST, String PREVCLOSE, String TOTTRDQTY, String TOTTRDVAL, String TIMESTAMP, String TOTALTRADES, String ISIN) {
+
+
+        driver.get("https://www.screener.in/company/" + SYMBOL);
+
+        HomePage homePage = new HomePage(driver);
+        Screener screener = new Screener();
+
+        homePage.expandAllRow();
+        screener.setCompanyName(homePage.getCompanyName());
+        screener.setCompanyInfo(homePage.getCompanyInfo());
+        CompanyValue companyValue = new CompanyValue(driver);
+        screener.setCompanyValue(companyValue);
+        screener.setPros(homePage.getPros());
+        screener.setCon(homePage.getCons());
+        screener.setPeers(homePage.getPeers());
+        screener.setQuarters(homePage.getQuarters());
+        screener.setProfitLoss(homePage.getProfitLoss());
+        screener.setCompSalesGrowth(homePage.getCompoundSalesGrowth());
+        screener.setCompoundProfitGrowths(homePage.getCompoundProfitGrowth());
+        screener.setReturnOnEquities(homePage.getReturnOnEquity());
+        screener.setBalanceSheet(homePage.getBalanceSheet());
+        screener.setCashFlow(homePage.getCashFlow());
+        screener.setRatios(homePage.getRatios());
+        screener.setRecentAnnouncements(homePage.getRecentAnnuouncement());
+        screener.setAnnualReports(homePage.getAnnualReports());
+        screener.setCreditRatings(homePage.getCreditRatings());
+
+        /*screenerList.put(""screener);*/
+       /* List<String> data =new ArrayList<String>();
+        data.add(companyName);
+        data.add(companyInfo);
+        data.add(companyValue);
+        data.add(prosAndCons);
+        data.add(peers);
+        data.add(quarters);
+        data.add(profitLoss);
+        data.add(balanceSheet);
+        data.add(cashFlow);
+        data.add(ratios);
+        data.add(documents);*/
+
+       /* HashMap<String, String> stringMap = new HashMap<String, String>();
+        stringMap.put("companyName", companyName);
+        stringMap.put("companyInfo", companyInfo);*/
+        /*stringMap.put("companyValue", companyValue);
+        stringMap.put("prosAndCons", prosAndCons);
+        stringMap.put("peers", peers);
+        stringMap.put("quarters", quarters);
+        stringMap.put("profitLoss", profitLoss);
+        stringMap.put("balanceSheet", balanceSheet);
+        stringMap.put("cashFlow", cashFlow);
+        stringMap.put("ratios", ratios);
+        stringMap.put("documents", documents);*/
+
+        //map.put(SYMBOL,data);
+        screenerList.add(screener);
+        log.info(screenerList);
+
+    }
+
+    @AfterTest
+    public void closeBrowser() {
+
+        /*for (Map.Entry<String, HashMap<String, String>> entry : map.entrySet()) {
+            System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+        }*/
+        for (String handle : driver.getWindowHandles()) {
+            if (handle != null && handle.trim().length() > 0) {
+                driver.switchTo().window(handle);
+                driver.close();
+            }
+        }
+        driver.quit();
+    }
+}
+
+

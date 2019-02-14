@@ -1,0 +1,174 @@
+package screener;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+public class CompanyValue {
+
+    WebDriver driver;
+
+    public CompanyValue(WebDriver driver)
+    {
+        this.driver =driver;
+        PageFactory.initElements(driver,this);
+
+        setvalue();
+    }
+
+    public void setvalue()
+    {
+        setMarketCap();
+        setCurrentPrice();
+        setWeeksHighLow();
+        setBookValue();
+        setStock();
+        setDividendYield();
+        setRoce();
+        setRoe();
+        setSalesGrowth();
+        setBselink();
+        setNselink();
+        setCompanywebsite();
+        setFacevalue();
+    }
+
+    public String marketCap;
+    public String currentPrice;
+    public String weeksHighLow;  //52WeeksHighLow
+    public String bookValue;
+    public String stock;
+    public String dividendYield;
+    public String roce;
+    public String roe;
+    public String salesGrowth;
+    public String bselink;
+    public String nselink;
+    public String companywebsite;
+    public String facevalue;
+
+    public CompanyValue(String marketCap, String currentPrice, String weeksHighLow, String bookValue, String stock, String dividendYield, String roce, String roe, String salesGrowth, String bselink, String nselink, String companywebsite, String facevalue) {
+        this.marketCap = marketCap;
+        this.currentPrice = currentPrice;
+        this.weeksHighLow = weeksHighLow;
+        this.bookValue = bookValue;
+        this.stock = stock;
+        this.dividendYield = dividendYield;
+        this.roce = roce;
+        this.roe = roe;
+        this.salesGrowth = salesGrowth;
+        this.bselink = bselink;
+        this.nselink = nselink;
+        this.companywebsite = companywebsite;
+        this.facevalue = facevalue;
+    }
+
+    public String getMarketCap() {
+        return marketCap;
+    }
+
+    public void setMarketCap() {
+        this.marketCap=driver.findElement(By.xpath("//*[@id='main-area']/section[1]/ul/li[1]/b")).getText();
+    }
+
+    public String getCurrentPrice() {
+        return currentPrice;
+    }
+
+    public void setCurrentPrice() {
+        this.currentPrice=driver.findElement(By.xpath("//*[@id='main-area']/section[1]/ul/li[2]/b")).getText();
+    }
+
+    public String getWeeksHighLow() {
+        return weeksHighLow;
+    }
+
+    public void setWeeksHighLow() {
+        this.weeksHighLow = driver.findElement(By.xpath("//*[@id='main-area']/section[1]/ul/li[3]/b")).getText();
+    }
+
+    public String getBookValue() {
+        return bookValue;
+    }
+
+    public void setBookValue() {
+        this.bookValue = driver.findElement(By.xpath("//*[@id='main-area']/section[1]/ul/li[4]/b")).getText();
+    }
+
+    public String getStock() {
+        return stock;
+    }
+
+    public void setStock() {
+        this.stock = driver.findElement(By.xpath("//*[@id='main-area']/section[1]/ul/li[5]/b")).getText();
+    }
+
+    public String getDividendYield() {
+        return dividendYield;
+    }
+
+    public void setDividendYield() {
+        this.dividendYield = driver.findElement(By.xpath("//*[@id='main-area']/section[1]/ul/li[6]/b")).getText();
+    }
+
+    public String getRoce() {
+        return roce;
+    }
+
+    public void setRoce() {
+        this.roce =driver.findElement(By.xpath("//*[@id='main-area']/section[1]/ul/li[7]/b")).getText();
+    }
+
+    public String getRoe() {
+        return roe;
+    }
+
+    public void setRoe() {
+        this.roe = driver.findElement(By.xpath("//*[@id='main-area']/section[1]/ul/li[8]/b")).getText();
+    }
+
+    public String getSalesGrowth() {
+        return salesGrowth;
+    }
+
+    public void setSalesGrowth() {
+        this.salesGrowth = driver.findElement(By.xpath("//*[@id='main-area']/section[1]/ul/li[9]/b")).getText();
+    }
+
+    public String getBselink() {
+        return bselink;
+    }
+
+    public void setBselink() {
+        this.bselink = driver.findElement(By.xpath("//*[@id='main-area']/section[1]/ul/li[10]/a[1]")).getAttribute("href");
+    }
+
+    public String getNselink() {
+        return nselink;
+    }
+
+    public void setNselink() {
+        this.nselink = driver.findElement(By.xpath("//*[@id='main-area']/section[1]/ul/li[10]/a[2]")).getAttribute("href");
+    }
+
+    public String getCompanywebsite() {
+        return companywebsite;
+    }
+
+    public void setCompanywebsite() {
+        this.companywebsite = driver.findElement(By.xpath("//*[@id='main-area']/section[1]/ul/li[11]/a")).getAttribute("href");
+    }
+
+    public String getFacevalue() {
+        return facevalue;
+    }
+
+    public void setFacevalue() {
+        this.facevalue = driver.findElement(By.xpath("//*[@id='main-area']/section[1]/ul/li[12]/b")).getText();
+    }
+
+
+
+
+
+}

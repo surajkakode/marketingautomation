@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="-1" guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [daily]">
+  <listeners>
+    <listener class-name="customListener.Listener"/>
+    <listener class-name="customListener.RetryListener"/>
+  </listeners>
+  <test verbose="0" name="bhavcopydownload(failed)">
+    <classes>
+      <class name="amfi.DistributorData">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="setup"/>
+          <include name="downloadDistributorData"/>
+        </methods>
+      </class> <!-- amfi.DistributorData -->
+    </classes>
+  </test> <!-- bhavcopydownload(failed) -->
+</suite> <!-- Failed suite [daily] -->

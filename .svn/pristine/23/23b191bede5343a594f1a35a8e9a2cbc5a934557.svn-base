@@ -1,0 +1,125 @@
+package screener;
+
+public class Quarters {
+
+
+    public String getLastquater_1() {
+        return lastquater_1;
+    }
+
+    public void setLastquater_1(String lastquater_1) {
+        this.lastquater_1 = lastquater_1;
+    }
+
+    public String getLastquater_2() {
+        return lastquater_2;
+    }
+
+    public void setLastquater_2(String lastquater_2) {
+        this.lastquater_2 = lastquater_2;
+    }
+
+    public String getLastquater_3() {
+        return lastquater_3;
+    }
+
+    public void setLastquater_3(String lastquater_3) {
+        this.lastquater_3 = lastquater_3;
+    }
+
+    public String getLastquater_4() {
+        return lastquater_4;
+    }
+
+    public void setLastquater_4(String lastquater_4) {
+        this.lastquater_4 = lastquater_4;
+    }
+
+    public String getLastquater_5() {
+        return lastquater_5;
+    }
+
+    public void setLastquater_5(String lastquater_5) {
+        this.lastquater_5 = lastquater_5;
+    }
+
+    public String getLastquater_6() {
+        return lastquater_6;
+    }
+
+    public void setLastquater_6(String lastquater_6) {
+        this.lastquater_6 = lastquater_6;
+    }
+
+    public String getLastquater_7() {
+        return lastquater_7;
+    }
+
+    public void setLastquater_7(String lastquater_7) {
+        this.lastquater_7 = lastquater_7;
+    }
+
+    public String getLastquater_8() {
+        return lastquater_8;
+    }
+
+    public void setLastquater_8(String lastquater_8) {
+        this.lastquater_8 = lastquater_8;
+    }
+
+    public String getLastquater_9() {
+        return lastquater_9;
+    }
+
+    public void setLastquater_9(String lastquater_9) {
+        this.lastquater_9 = lastquater_9;
+    }
+
+    public String getLastquater_10() {
+        return lastquater_10;
+    }
+
+    public void setLastquater_10(String lastquater_10) {
+        this.lastquater_10 = lastquater_10;
+    }
+
+    public String getLastquater_11() {
+        return lastquater_11;
+    }
+
+    public void setLastquater_11(String lastquater_11) {
+        this.lastquater_11 = lastquater_11;
+    }
+
+    public String getLastquater_12() {
+        return lastquater_12;
+    }
+
+    public void setLastquater_12(String lastquater_12) {
+        this.lastquater_12 = lastquater_12;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    private String type;
+    private String lastquater_1;   //last Quarter_1 = one quater previous to  current quarter
+    private String lastquater_2;
+    private String lastquater_3;
+    private String lastquater_4;
+    private String lastquater_5;
+    private String lastquater_6;
+    private String lastquater_7;
+    private String lastquater_8;
+    private String lastquater_9;
+    private String lastquater_10;
+    private String lastquater_11;
+    private String lastquater_12;
+
+
+}
